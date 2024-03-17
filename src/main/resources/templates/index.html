@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Booking System</title>
+</head>
+<body>
+    <h1>Available Buses</h1>
+    <a href="/buses/new">Add New Bus</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="bus : ${buses}">
+                <td th:text="${bus.id}"></td>
+                <td th:text="${bus.name}"></td>
+                <td th:text="${bus.capacity}"></td>
+                <td>
+                    <a th:href="@{/buses/{id}(id=${bus.id})}">Details</a>
+                    <a th:href="@{/buses/edit/{id}(id=${bus.id})}">Edit</a>
+                    <a th:href="@{/buses/delete/{id}(id=${bus.id})}" onclick="return confirm('Are you sure you want to delete this bus?')">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

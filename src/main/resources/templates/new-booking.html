@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Booking</title>
+</head>
+<body>
+    <h1>New Booking</h1>
+    <form th:action="@{/bookings/save}" th:object="${booking}" method="post">
+        <input type="hidden" th:field="*{busId}" />
+        <label for="passengerName">Passenger Name:</label>
+        <input type="text" id="passengerName" th:field="*{passengerName}" required />
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Details</title>
+</head>
+<body>
+    <h1>Bus Details</h1>
+    <p>ID: <span th:text="${bus.id}"></span></p>
+    <p>Name: <span th:text="${bus.name}"></span></p>
+    <p>Capacity: <span th:text="${bus.capacity}"></span></p>
+    <a th:href="@{/buses/edit/{id}(id=${bus.id})}">Edit</a>
+    <a th:href="@{/buses/delete/{id}(id=${bus.id})}" onclick="return confirm('Are you sure you want to delete this bus?')">Delete</a>
+    <a th:href="@{/buses}">Back to Buses</a>
+</body>
+</html>

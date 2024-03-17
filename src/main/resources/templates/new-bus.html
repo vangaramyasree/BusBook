@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Bus</title>
+</head>
+<body>
+    <h1>Add New Bus</h1>
+    <form th:action="@{/buses/save}" th:object="${bus}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required />
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" th:field="*{capacity}" required />
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
